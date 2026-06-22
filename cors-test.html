@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Test - Vehicle Expense API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        h1 {
+            color: #333;
+        }
+        .info {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>?? Vehicle Expense API - CORS Test</h1>
+        
+        <div class="info">
+            <strong>?? Important:</strong> Serve this file from a local web server on port 4200<br>
+            <code>npx http-server -p 4200</code> or <code>python -m http.server 4200</code>
+        </div>
+
+        <div>
+            <label for="email"><strong>Email:</strong></label>
+            <input type="email" id="email" value="demo@example.com" />
+            
+            <label for="fullName"><strong>Full Name:</strong></label>
+            <input type="text" id="fullName" value="Demo User" />
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button onclick="testSendOtp()">1?? Send OTP</button>
+            <button onclick="testVerifyOtp()">2?? Verify OTP</button>
+            <button onclick="testGetProfile()">3?? Get Profile</button>
+            <button onclick="testGetDashboard()">4?? Get Dashboard</button>
+            <button onclick="testGetVehicles()">5?? Get Vehicles</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'https://localhost:7257/api';
+        let currentToken = '';
+        let currentOtp = '';
+
+        function showResult(message, isSuccess = true) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = `result ${isSuccess ? 'success' : 'error'}`;
+            resultDiv.textContent = message;
+        }
+
+        async function testSendOtp() {
+            try {
+                const email = document.getElementById('email').value;
+                const fullName = document.getElementById('fullName').value;
+
+                const response = await fetch(`${API_BASE}/auth/send-otp`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, fullName })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                currentOtp = data.otp;
+                showResult(`? CORS SUCCESS!\n\nOTP sent successfully!\nOTP: ${data.otp}\n\nClick "Verify OTP" to continue.`);
+            } catch (error) {
+                showResult(`? CORS ERROR!\n\n${error.message}\n\nMake sure:\n1. API is running on https://localhost:7257\n2. CORS policy allows localhost:4200\n3. This page is served from http://localhost:4200`, false);
+            }
+        }
+
+        async function testVerifyOtp() {
+            if (!currentOtp) {
+                showResult('?? Please send OTP first!', false);
+                return;
+            }
+
+            try {
+                const email = document.getElementById('email').value;
+
+                const response = await fetch(`${API_BASE}/auth/verify-otp`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, otp: currentOtp })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                currentToken = data.accessToken;
+                showResult(`? Login successful!\n\nUser: ${data.name}\nEmail: ${data.email}\nToken: ${data.accessToken.substring(0, 50)}...\n\nYou can now test protected endpoints!`);
+            } catch (error) {
+                showResult(`? Error: ${error.message}`, false);
+            }
+        }
+
+        async function testGetProfile() {
+            if (!currentToken) {
+                showResult('?? Please login first (Send OTP ? Verify OTP)!', false);
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/user/profile`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${currentToken}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                showResult(`? Profile loaded!\n\n${JSON.stringify(data, null, 2)}`);
+            } catch (error) {
+                showResult(`? Error: ${error.message}`, false);
+            }
+        }
+
+        async function testGetDashboard() {
+            if (!currentToken) {
+                showResult('?? Please login first!', false);
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/dashboard`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${currentToken}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                showResult(`? Dashboard loaded!\n\nTotal Vehicles: ${data.totalVehicles}\nTotal Fuel Cost: ?${data.totalFuelCost}\nTotal Expenses: ?${data.totalExpenseCost}\nTotal Cost: ?${data.totalCost}\n\nVehicle Summaries:\n${JSON.stringify(data.vehicleSummaries, null, 2)}`);
+            } catch (error) {
+                showResult(`? Error: ${error.message}`, false);
+            }
+        }
+
+        async function testGetVehicles() {
+            if (!currentToken) {
+                showResult('?? Please login first!', false);
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/vehicles`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${currentToken}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                showResult(`? Vehicles loaded!\n\nTotal: ${data.length}\n\n${JSON.stringify(data, null, 2)}`);
+            } catch (error) {
+                showResult(`? Error: ${error.message}`, false);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+2026-06-06 12:15:01.186 +05:30 [INF] Incoming GET /swagger/index.html
+2026-06-06 12:15:01.793 +05:30 [INF] Completed GET /swagger/index.html => 200 in 254.3306ms
+2026-06-06 12:15:01.844 +05:30 [INF] Incoming GET /swagger/swagger-ui-bundle.js
+2026-06-06 12:15:01.844 +05:30 [INF] Incoming GET /swagger/swagger-ui-standalone-preset.js
+2026-06-06 12:15:01.844 +05:30 [INF] Incoming GET /swagger/index.js
+2026-06-06 12:15:02.569 +05:30 [INF] Completed GET /swagger/index.js => 200 in 8.0196ms
+2026-06-06 12:15:02.759 +05:30 [INF] Completed GET /swagger/swagger-ui-standalone-preset.js => 200 in 250.5011ms
+2026-06-06 12:15:02.915 +05:30 [INF] Completed GET /swagger/swagger-ui-bundle.js => 200 in 590.1187ms
+2026-06-06 12:15:03.420 +05:30 [INF] Incoming GET /swagger/v1/swagger.json
+2026-06-06 12:15:03.704 +05:30 [INF] Completed GET /swagger/v1/swagger.json => 200 in 133.9658ms
+2026-06-06 12:21:57.708 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 12:21:59.322 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 1602.1154ms
+2026-06-06 12:22:27.343 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 12:22:27.982 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 620.8794ms
+2026-06-06 12:24:42.847 +05:30 [INF] Incoming GET /api/fuel
+2026-06-06 12:24:43.299 +05:30 [INF] Completed GET /api/fuel => 200 in 423.879ms
+2026-06-06 12:41:44.615 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 12:41:45.399 +05:30 [ERR] Unhandled exception occurred
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Vehicles'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at VehicleExpense.Infrastructure.Repositories.VehicleRepository.GetByUserIdAsync(Int32 userId) in D:\PersonalProject\VehicleExpenseTrackingAPI\VehicleExpense.Infrastructure\Repositories\VehicleRepository.cs:line 20
+   at VehicleExpense.Application.Services.DashboardService.GetDashboardAsync(Int32 userId) in D:\PersonalProject\VehicleExpenseTrackingAPI\VehicleExpense.Application\Services\DashboardService.cs:line 27
+   at VehicleExpense.Api.Endpoints.DashboardEndpoints.<>c.<<MapDashboardEndpoints>b__0_0>d.MoveNext() in D:\PersonalProject\VehicleExpenseTrackingAPI\VehicleExpense.Api\Endpoints\DashboardEndpoints.cs:line 16
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Prometheus.HttpMetrics.HttpRequestDurationMiddleware.Invoke(HttpContext context)
+   at Prometheus.HttpMetrics.HttpRequestCountMiddleware.Invoke(HttpContext context)
+   at Prometheus.HttpMetrics.HttpInProgressMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VehicleExpense.Api.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\PersonalProject\VehicleExpenseTrackingAPI\VehicleExpense.Api\Middleware\RequestLoggingMiddleware.cs:line 22
+   at VehicleExpense.Api.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\PersonalProject\VehicleExpenseTrackingAPI\VehicleExpense.Api\Middleware\ExceptionMiddleware.cs:line 24
+2026-06-06 12:42:31.904 +05:30 [INF] Incoming GET /swagger/index.html
+2026-06-06 12:42:32.258 +05:30 [INF] Completed GET /swagger/index.html => 200 in 211.7042ms
+2026-06-06 12:42:32.313 +05:30 [INF] Incoming GET /swagger/index.js
+2026-06-06 12:42:32.322 +05:30 [INF] Completed GET /swagger/index.js => 200 in 3.4412ms
+2026-06-06 12:42:32.797 +05:30 [INF] Incoming GET /swagger/v1/swagger.json
+2026-06-06 12:42:32.857 +05:30 [INF] Completed GET /swagger/v1/swagger.json => 200 in 53.8227ms
+2026-06-06 12:45:03.929 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 12:45:05.339 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 1401.0528ms
+2026-06-06 12:45:25.670 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 12:45:26.587 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 903.679ms
+2026-06-06 12:45:57.595 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 12:45:57.958 +05:30 [INF] Completed GET /api/dashboard => 200 in 301.2624ms
+2026-06-06 14:39:42.402 +05:30 [INF] Incoming GET /api/user/profile
+2026-06-06 14:39:42.427 +05:30 [INF] Completed GET /api/user/profile => 401 in 21.1149ms
+2026-06-06 14:39:55.688 +05:30 [INF] Incoming GET /api/user/profile
+2026-06-06 14:39:55.695 +05:30 [INF] Completed GET /api/user/profile => 401 in 3.5105ms
+2026-06-06 14:58:29.887 +05:30 [INF] Incoming GET /swagger/index.html
+2026-06-06 14:58:30.028 +05:30 [INF] Completed GET /swagger/index.html => 200 in 81.5247ms
+2026-06-06 14:58:30.059 +05:30 [INF] Incoming GET /swagger/index.js
+2026-06-06 14:58:30.065 +05:30 [INF] Completed GET /swagger/index.js => 200 in 2.8473ms
+2026-06-06 14:58:30.233 +05:30 [INF] Incoming GET /swagger/v1/swagger.json
+2026-06-06 14:58:30.307 +05:30 [INF] Completed GET /swagger/v1/swagger.json => 200 in 42.7306ms
+2026-06-06 15:06:33.631 +05:30 [INF] Incoming OPTIONS /api/auth/send-otp
+2026-06-06 15:06:33.650 +05:30 [INF] Completed OPTIONS /api/auth/send-otp => 204 in 3.3913ms
+2026-06-06 15:06:33.690 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 15:06:34.333 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 640.5688ms
+2026-06-06 15:06:38.755 +05:30 [INF] Incoming OPTIONS /api/auth/verify-otp
+2026-06-06 15:06:38.760 +05:30 [INF] Completed OPTIONS /api/auth/verify-otp => 204 in 0.1977ms
+2026-06-06 15:06:38.768 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 15:06:39.198 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 424.1013ms
+2026-06-06 15:06:39.927 +05:30 [INF] Incoming OPTIONS /api/dashboard
+2026-06-06 15:06:39.932 +05:30 [INF] Completed OPTIONS /api/dashboard => 204 in 0.3604ms
+2026-06-06 15:06:39.942 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 15:06:39.965 +05:30 [INF] Incoming OPTIONS /api/vehicles
+2026-06-06 15:06:39.971 +05:30 [INF] Incoming OPTIONS /api/expenses
+2026-06-06 15:06:39.970 +05:30 [INF] Incoming OPTIONS /api/fuel
+2026-06-06 15:06:39.971 +05:30 [INF] Incoming OPTIONS /api/user/profile
+2026-06-06 15:06:39.981 +05:30 [INF] Completed OPTIONS /api/vehicles => 204 in 0.2812ms
+2026-06-06 15:06:39.996 +05:30 [INF] Completed OPTIONS /api/expenses => 204 in 0.2992ms
+2026-06-06 15:06:39.999 +05:30 [INF] Completed OPTIONS /api/fuel => 204 in 0.1109ms
+2026-06-06 15:06:40.002 +05:30 [INF] Completed OPTIONS /api/user/profile => 204 in 0.1264ms
+2026-06-06 15:06:40.024 +05:30 [INF] Incoming GET /api/expenses
+2026-06-06 15:06:40.014 +05:30 [INF] Incoming GET /api/vehicles
+2026-06-06 15:06:40.031 +05:30 [INF] Incoming GET /api/fuel
+2026-06-06 15:06:40.041 +05:30 [INF] Incoming GET /api/user/profile
+2026-06-06 15:06:40.139 +05:30 [INF] Completed GET /api/expenses => 200 in 93.7121ms
+2026-06-06 15:06:40.139 +05:30 [INF] Completed GET /api/fuel => 200 in 87.8753ms
+2026-06-06 15:06:40.146 +05:30 [INF] Completed GET /api/vehicles => 200 in 98.1346ms
+2026-06-06 15:06:40.147 +05:30 [INF] Completed GET /api/dashboard => 200 in 197.3139ms
+2026-06-06 15:06:40.150 +05:30 [INF] Completed GET /api/user/profile => 200 in 94.5343ms
+2026-06-06 15:27:04.656 +05:30 [INF] Incoming OPTIONS /api/auth/send-otp
+2026-06-06 15:27:04.666 +05:30 [INF] Completed OPTIONS /api/auth/send-otp => 204 in 0.2287ms
+2026-06-06 15:27:04.672 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 15:27:04.867 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 191.8853ms
+2026-06-06 15:27:07.378 +05:30 [INF] Incoming OPTIONS /api/auth/verify-otp
+2026-06-06 15:27:07.381 +05:30 [INF] Completed OPTIONS /api/auth/verify-otp => 204 in 0.1695ms
+2026-06-06 15:27:07.392 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 15:27:07.567 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 172.8732ms
+2026-06-06 15:27:08.289 +05:30 [INF] Incoming OPTIONS /api/dashboard
+2026-06-06 15:27:08.294 +05:30 [INF] Completed OPTIONS /api/dashboard => 204 in 0.1709ms
+2026-06-06 15:27:08.295 +05:30 [INF] Incoming OPTIONS /api/vehicles
+2026-06-06 15:27:08.302 +05:30 [INF] Incoming OPTIONS /api/fuel
+2026-06-06 15:27:08.340 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 15:27:08.340 +05:30 [INF] Completed OPTIONS /api/vehicles => 204 in 0.1089ms
+2026-06-06 15:27:08.315 +05:30 [INF] Incoming OPTIONS /api/expenses
+2026-06-06 15:27:08.350 +05:30 [INF] Completed OPTIONS /api/fuel => 204 in 0.4501ms
+2026-06-06 15:27:08.316 +05:30 [INF] Incoming OPTIONS /api/user/profile
+2026-06-06 15:27:08.362 +05:30 [INF] Completed GET /api/dashboard => 200 in 7.5617ms
+2026-06-06 15:27:08.362 +05:30 [INF] Completed OPTIONS /api/expenses => 204 in 0.0835ms
+2026-06-06 15:27:08.362 +05:30 [INF] Incoming GET /api/vehicles
+2026-06-06 15:27:08.372 +05:30 [INF] Completed OPTIONS /api/user/profile => 204 in 0.0915ms
+2026-06-06 15:27:08.369 +05:30 [INF] Incoming GET /api/fuel
+2026-06-06 15:27:08.383 +05:30 [INF] Incoming GET /api/expenses
+2026-06-06 15:27:08.385 +05:30 [INF] Completed GET /api/vehicles => 200 in 1.7853ms
+2026-06-06 15:27:08.390 +05:30 [INF] Incoming GET /api/user/profile
+2026-06-06 15:27:08.392 +05:30 [INF] Completed GET /api/fuel => 200 in 1.4527ms
+2026-06-06 15:27:08.395 +05:30 [INF] Completed GET /api/expenses => 200 in 1.3891ms
+2026-06-06 15:27:08.402 +05:30 [INF] Completed GET /api/user/profile => 200 in 2.5989ms
+2026-06-06 16:01:10.871 +05:30 [INF] Incoming OPTIONS /api/auth/send-otp
+2026-06-06 16:01:10.880 +05:30 [INF] Completed OPTIONS /api/auth/send-otp => 204 in 0.1637ms
+2026-06-06 16:01:10.887 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 16:01:11.066 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 176.0301ms
+2026-06-06 16:01:13.070 +05:30 [INF] Incoming OPTIONS /api/auth/verify-otp
+2026-06-06 16:01:13.073 +05:30 [INF] Completed OPTIONS /api/auth/verify-otp => 204 in 0.1049ms
+2026-06-06 16:01:13.084 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 16:01:13.255 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 166.4897ms
+2026-06-06 16:01:14.544 +05:30 [INF] Incoming OPTIONS /api/dashboard
+2026-06-06 16:01:14.547 +05:30 [INF] Completed OPTIONS /api/dashboard => 204 in 0.3799ms
+2026-06-06 16:01:14.595 +05:30 [INF] Incoming OPTIONS /api/vehicles
+2026-06-06 16:01:14.646 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 16:01:14.599 +05:30 [INF] Incoming OPTIONS /api/expenses
+2026-06-06 16:01:14.611 +05:30 [INF] Incoming OPTIONS /api/user/profile
+2026-06-06 16:01:14.597 +05:30 [INF] Incoming OPTIONS /api/fuel
+2026-06-06 16:01:14.679 +05:30 [INF] Completed OPTIONS /api/vehicles => 204 in 0.0953ms
+2026-06-06 16:01:14.686 +05:30 [INF] Completed OPTIONS /api/expenses => 204 in 0.3318ms
+2026-06-06 16:01:14.692 +05:30 [INF] Completed GET /api/dashboard => 200 in 9.7451ms
+2026-06-06 16:01:14.702 +05:30 [INF] Incoming GET /api/vehicles
+2026-06-06 16:01:14.692 +05:30 [INF] Completed OPTIONS /api/user/profile => 204 in 0.0638ms
+2026-06-06 16:01:14.694 +05:30 [INF] Completed OPTIONS /api/fuel => 204 in 0.0678ms
+2026-06-06 16:01:14.716 +05:30 [INF] Completed GET /api/vehicles => 200 in 2.7826ms
+2026-06-06 16:01:14.723 +05:30 [INF] Incoming GET /api/user/profile
+2026-06-06 16:01:14.709 +05:30 [INF] Incoming GET /api/expenses
+2026-06-06 16:01:14.729 +05:30 [INF] Incoming GET /api/fuel
+2026-06-06 16:01:14.742 +05:30 [INF] Completed GET /api/user/profile => 200 in 2.3939ms
+2026-06-06 16:01:14.744 +05:30 [INF] Completed GET /api/expenses => 200 in 1.8147ms
+2026-06-06 16:01:14.748 +05:30 [INF] Completed GET /api/fuel => 200 in 3.1263ms
+2026-06-06 16:03:48.687 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 16:03:48.862 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 165.1124ms
+2026-06-06 16:04:11.513 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 16:04:11.720 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 197.1946ms
+2026-06-06 16:04:43.280 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 16:04:43.292 +05:30 [INF] Completed GET /api/dashboard => 200 in 1.3095ms
+2026-06-06 16:06:40.466 +05:30 [INF] Incoming OPTIONS /api/auth/send-otp
+2026-06-06 16:06:40.484 +05:30 [INF] Completed OPTIONS /api/auth/send-otp => 204 in 0.0587ms
+2026-06-06 16:06:40.491 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 16:06:40.687 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 193.5522ms
+2026-06-06 16:06:42.377 +05:30 [INF] Incoming OPTIONS /api/auth/verify-otp
+2026-06-06 16:06:42.385 +05:30 [INF] Completed OPTIONS /api/auth/verify-otp => 204 in 0.0625ms
+2026-06-06 16:06:42.391 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 16:06:42.664 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 268.7192ms
+2026-06-06 16:06:43.377 +05:30 [INF] Incoming OPTIONS /api/dashboard
+2026-06-06 16:06:43.383 +05:30 [INF] Incoming OPTIONS /api/fuel
+2026-06-06 16:06:43.384 +05:30 [INF] Incoming OPTIONS /api/expenses
+2026-06-06 16:06:43.381 +05:30 [INF] Incoming OPTIONS /api/vehicles
+2026-06-06 16:06:43.388 +05:30 [INF] Completed OPTIONS /api/dashboard => 204 in 0.0748ms
+2026-06-06 16:06:43.402 +05:30 [INF] Incoming OPTIONS /api/user/profile
+2026-06-06 16:06:43.416 +05:30 [INF] Completed OPTIONS /api/fuel => 204 in 0.0811ms
+2026-06-06 16:06:43.420 +05:30 [INF] Completed OPTIONS /api/expenses => 204 in 0.0685ms
+2026-06-06 16:06:43.423 +05:30 [INF] Completed OPTIONS /api/vehicles => 204 in 0.0626ms
+2026-06-06 16:06:43.435 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 16:06:43.456 +05:30 [INF] Incoming GET /api/expenses
+2026-06-06 16:06:43.436 +05:30 [INF] Completed OPTIONS /api/user/profile => 204 in 0.0467ms
+2026-06-06 16:06:43.452 +05:30 [INF] Incoming GET /api/fuel
+2026-06-06 16:06:43.463 +05:30 [INF] Incoming GET /api/vehicles
+2026-06-06 16:06:43.474 +05:30 [INF] Incoming GET /api/user/profile
+2026-06-06 16:06:43.480 +05:30 [INF] Completed GET /api/expenses => 200 in 12.8188ms
+2026-06-06 16:06:43.483 +05:30 [INF] Completed GET /api/dashboard => 200 in 18.4442ms
+2026-06-06 16:06:43.485 +05:30 [INF] Completed GET /api/fuel => 200 in 7.2078ms
+2026-06-06 16:06:43.491 +05:30 [INF] Completed GET /api/vehicles => 200 in 10.4628ms
+2026-06-06 16:06:43.492 +05:30 [INF] Completed GET /api/user/profile => 200 in 2.6658ms
+2026-06-06 21:07:28.783 +05:30 [INF] Incoming GET /swagger/index.html
+2026-06-06 21:07:29.222 +05:30 [INF] Completed GET /swagger/index.html => 200 in 258.0621ms
+2026-06-06 21:07:29.312 +05:30 [INF] Incoming GET /swagger/index.js
+2026-06-06 21:07:29.390 +05:30 [INF] Completed GET /swagger/index.js => 200 in 16.3449ms
+2026-06-06 21:07:29.629 +05:30 [INF] Incoming GET /swagger/v1/swagger.json
+2026-06-06 21:07:29.681 +05:30 [INF] Completed GET /swagger/v1/swagger.json => 200 in 45.1841ms
+2026-06-06 21:51:52.813 +05:30 [INF] Incoming GET /swagger/index.html
+2026-06-06 21:51:53.055 +05:30 [INF] Completed GET /swagger/index.html => 200 in 144.3763ms
+2026-06-06 21:51:53.082 +05:30 [INF] Incoming GET /swagger/index.js
+2026-06-06 21:51:53.182 +05:30 [INF] Completed GET /swagger/index.js => 200 in 1.5301ms
+2026-06-06 21:51:53.259 +05:30 [INF] Incoming GET /swagger/v1/swagger.json
+2026-06-06 21:51:53.295 +05:30 [INF] Completed GET /swagger/v1/swagger.json => 200 in 34.0848ms
+2026-06-06 21:52:52.703 +05:30 [INF] Incoming GET /swagger/index.html
+2026-06-06 21:52:52.826 +05:30 [INF] Completed GET /swagger/index.html => 200 in 73.7928ms
+2026-06-06 21:52:52.854 +05:30 [INF] Incoming GET /swagger/index.js
+2026-06-06 21:52:52.859 +05:30 [INF] Completed GET /swagger/index.js => 200 in 2.1838ms
+2026-06-06 21:52:52.956 +05:30 [INF] Incoming GET /swagger/v1/swagger.json
+2026-06-06 21:52:52.979 +05:30 [INF] Completed GET /swagger/v1/swagger.json => 200 in 20.245ms
+2026-06-06 21:55:11.217 +05:30 [INF] Incoming OPTIONS /api/auth/send-otp
+2026-06-06 21:55:11.236 +05:30 [INF] Completed OPTIONS /api/auth/send-otp => 204 in 3.7506ms
+2026-06-06 21:55:11.261 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 21:55:11.973 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 708.262ms
+2026-06-06 21:55:13.904 +05:30 [INF] Incoming OPTIONS /api/auth/verify-otp
+2026-06-06 21:55:13.907 +05:30 [INF] Completed OPTIONS /api/auth/verify-otp => 204 in 0.245ms
+2026-06-06 21:55:13.918 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 21:55:14.259 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 333.7052ms
+2026-06-06 21:55:14.906 +05:30 [INF] Incoming OPTIONS /api/dashboard
+2026-06-06 21:55:14.910 +05:30 [INF] Incoming OPTIONS /api/vehicles
+2026-06-06 21:55:14.911 +05:30 [INF] Incoming OPTIONS /api/fuel
+2026-06-06 21:55:14.927 +05:30 [INF] Completed OPTIONS /api/vehicles => 204 in 0.1365ms
+2026-06-06 21:55:14.927 +05:30 [INF] Incoming OPTIONS /api/user/profile
+2026-06-06 21:55:14.942 +05:30 [INF] Completed OPTIONS /api/fuel => 204 in 0.1001ms
+2026-06-06 21:55:14.911 +05:30 [INF] Completed OPTIONS /api/dashboard => 204 in 0.235ms
+2026-06-06 21:55:14.953 +05:30 [INF] Completed OPTIONS /api/user/profile => 204 in 0.474ms
+2026-06-06 21:55:14.917 +05:30 [INF] Incoming OPTIONS /api/expenses
+2026-06-06 21:55:14.966 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 21:55:14.951 +05:30 [INF] Incoming GET /api/vehicles
+2026-06-06 21:55:14.959 +05:30 [INF] Incoming GET /api/fuel
+2026-06-06 21:55:14.971 +05:30 [INF] Completed OPTIONS /api/expenses => 204 in 0.1818ms
+2026-06-06 21:55:14.971 +05:30 [INF] Incoming GET /api/user/profile
+2026-06-06 21:55:14.989 +05:30 [INF] Incoming GET /api/expenses
+2026-06-06 21:55:15.120 +05:30 [INF] Completed GET /api/expenses => 200 in 125.5552ms
+2026-06-06 21:55:15.130 +05:30 [INF] Completed GET /api/dashboard => 200 in 152.5154ms
+2026-06-06 21:55:15.127 +05:30 [INF] Completed GET /api/vehicles => 200 in 149.0838ms
+2026-06-06 21:55:15.120 +05:30 [INF] Completed GET /api/fuel => 200 in 139.0352ms
+2026-06-06 21:55:15.138 +05:30 [INF] Completed GET /api/user/profile => 200 in 146.8962ms
+2026-06-06 22:05:00.991 +05:30 [INF] Incoming OPTIONS /api/auth/send-otp
+2026-06-06 22:05:00.999 +05:30 [INF] Completed OPTIONS /api/auth/send-otp => 204 in 0.1751ms
+2026-06-06 22:05:01.005 +05:30 [INF] Incoming POST /api/auth/send-otp
+2026-06-06 22:05:01.211 +05:30 [INF] Completed POST /api/auth/send-otp => 200 in 204.7407ms
+2026-06-06 22:05:02.893 +05:30 [INF] Incoming OPTIONS /api/auth/verify-otp
+2026-06-06 22:05:02.896 +05:30 [INF] Completed OPTIONS /api/auth/verify-otp => 204 in 0.1244ms
+2026-06-06 22:05:02.903 +05:30 [INF] Incoming POST /api/auth/verify-otp
+2026-06-06 22:05:03.099 +05:30 [INF] Completed POST /api/auth/verify-otp => 200 in 191.5209ms
+2026-06-06 22:05:04.031 +05:30 [INF] Incoming OPTIONS /api/dashboard
+2026-06-06 22:05:04.034 +05:30 [INF] Incoming OPTIONS /api/vehicles
+2026-06-06 22:05:04.043 +05:30 [INF] Completed OPTIONS /api/dashboard => 204 in 0.1077ms
+2026-06-06 22:05:04.046 +05:30 [INF] Incoming OPTIONS /api/fuel
+2026-06-06 22:05:04.048 +05:30 [INF] Incoming OPTIONS /api/expenses
+2026-06-06 22:05:04.064 +05:30 [INF] Incoming GET /api/dashboard
+2026-06-06 22:05:04.065 +05:30 [INF] Completed OPTIONS /api/fuel => 204 in 0.1024ms
+2026-06-06 22:05:04.050 +05:30 [INF] Completed OPTIONS /api/vehicles => 204 in 0.1119ms
+2026-06-06 22:05:04.074 +05:30 [INF] Completed OPTIONS /api/expenses => 204 in 0.2425ms
+2026-06-06 22:05:04.089 +05:30 [INF] Completed GET /api/dashboard => 200 in 9.9528ms
+2026-06-06 22:05:04.091 +05:30 [INF] Incoming GET /api/fuel
+2026-06-06 22:05:04.054 +05:30 [INF] Incoming OPTIONS /api/user/profile
+2026-06-06 22:05:04.098 +05:30 [INF] Incoming GET /api/vehicles
+2026-06-06 22:05:04.104 +05:30 [INF] Incoming GET /api/expenses
+2026-06-06 22:05:04.111 +05:30 [INF] Completed OPTIONS /api/user/profile => 204 in 0.0924ms
+2026-06-06 22:05:04.111 +05:30 [INF] Completed GET /api/fuel => 200 in 2.5415ms
+2026-06-06 22:05:04.118 +05:30 [INF] Completed GET /api/expenses => 200 in 2.5949ms
+2026-06-06 22:05:04.115 +05:30 [INF] Completed GET /api/vehicles => 200 in 1.7243ms
+2026-06-06 22:05:04.124 +05:30 [INF] Incoming GET /api/user/profile
+2026-06-06 22:05:04.137 +05:30 [INF] Completed GET /api/user/profile => 200 in 2.8301ms
